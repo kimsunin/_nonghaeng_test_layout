@@ -1,15 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Nav from "@/components/Navigator";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function SiteMap() {
+  const props = {
+    parent: { url: "/sitemap", title: "사이트맵" },
+  };
   return (
     <div>
       <Header />
       <hr />
-      <h1>홈입니다</h1>
+      <Nav props={props} />
+      <hr />
+      <h1>사이트맵 컴포넌트</h1>
       <hr />
       <Footer />
     </div>
