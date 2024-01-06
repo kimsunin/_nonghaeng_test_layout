@@ -11,14 +11,22 @@ export default function Travel() {
     child4: { url: "/travel/child4", title: "여행4" },
   };
   return (
-    <div>
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
       <hr />
-      <Nav props={props} />
+      <nav>
+        <Nav props={props} />
+      </nav>
       <hr />
-      <h1>여행 자식2 컴포넌트</h1>
+      <main>
+        <h1>여행 자식2 컴포넌트</h1>
+      </main>
       <hr />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }

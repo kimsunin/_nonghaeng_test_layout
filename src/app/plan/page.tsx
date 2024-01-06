@@ -9,14 +9,22 @@ export default function Plan() {
     child2: { url: "/plan/child2", title: "기획2" },
   };
   return (
-    <div>
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
       <hr />
-      <Nav props={props} />
+      <nav>
+        <Nav props={props} />
+      </nav>
       <hr />
-      <h1>기획 컴포넌트</h1>
+      <main>
+        <h1>기획 컴포넌트</h1>
+      </main>
       <hr />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }

@@ -7,14 +7,22 @@ export default function SiteMap() {
     parent: { url: "/sitemap", title: "사이트맵" },
   };
   return (
-    <div>
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
       <hr />
-      <Nav props={props} />
+      <nav>
+        <Nav props={props} />
+      </nav>
       <hr />
-      <h1>사이트맵 컴포넌트</h1>
+      <main>
+        <h1>사이트맵 컴포넌트</h1>
+      </main>
       <hr />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }

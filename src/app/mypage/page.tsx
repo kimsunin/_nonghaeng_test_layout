@@ -11,14 +11,22 @@ export default function Mypage() {
     child4: { url: "/mypage/child4", title: "마이페이지4" },
   };
   return (
-    <div>
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
       <hr />
-      <Nav props={props} />
+      <nav>
+        <Nav props={props} />
+      </nav>
       <hr />
-      <h1>마이페이지 컴포넌트</h1>
+      <main>
+        <h1>마이페이지 컴포넌트</h1>
+      </main>
       <hr />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }

@@ -12,14 +12,22 @@ export default function community() {
   };
 
   return (
-    <div>
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
       <hr />
-      <Nav props={props} />
+      <nav>
+        <Nav props={props} />
+      </nav>
       <hr />
-      <h1>커뮤니티 컴포넌트</h1>
+      <main>
+        <h1>커뮤니티 컴포넌트</h1>
+      </main>
       <hr />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }
