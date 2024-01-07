@@ -1,22 +1,25 @@
 import Link from "next/link";
 import React from "react";
-import { mainMenuData, subMenuData } from "@/storage/linkData/linkData";
+import { headerLinks } from "@/storage/linkData/linkData";
 
 function Header() {
-  const mainMenuLinks = mainMenuData.map((menuItem, index) => (
-    <li key={index}>
-      <Link href={menuItem.href}>{menuItem.title}</Link>
-    </li>
-  ));
-
-  const subMenuLinks = subMenuData.map((menu, index) => (
-    <ul key={index} className="flex flex-col">
-      {menu.title.map((item, subIndex) => (
+  const subMenuLinks = (subMenu) => (
+    <ul>
+      {subMenu.map((item, subIndex) => (
         <li key={subIndex}>
-          <Link href={menu.href[subIndex]}>{item}</Link>
+          <Link href={item.href}>{item.title}</Link>
         </li>
       ))}
     </ul>
+  );
+
+  const mainMenuLinks = headerLinks.map((menuItem, index) => (
+    <li key={index}>
+      <Link href={menuItem.href}>{menuItem.title}</Link>
+      <div className="hidden absolute top-full group-hover:block bg-green-50 bg-opacity-50 w-full">
+        {menuItem.subMenu && subMenuLinks(menuItem.subMenu)}
+      </div>
+    </li>
   ));
 
   return (
@@ -26,17 +29,9 @@ function Header() {
         <div>
           <Link href="/">홈</Link>
         </div>
-        <div className="relative group">
-          <div id="메인메뉴 링크들" className="cursor-pointer">
-            <ul className="flex">{mainMenuLinks}</ul>
-          </div>
-          <div
-            id="세부메뉴 링크들"
-            className="hidden absolute top-full left-0 group-hover:block bg-green-50 bg-opacity-50"
-          >
-            <div className="flex">{subMenuLinks}</div>
-          </div>
-        </div>
+        <nav className="relative group">
+          <ul className="flex cursor-pointer">{mainMenuLinks}</ul>
+        </nav>
         <div>
           <Link href="/mypage">마이페이지</Link>
           <Link href="/sitemap">메뉴</Link>

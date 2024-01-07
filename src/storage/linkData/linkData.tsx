@@ -1,36 +1,41 @@
 // header link
-export const mainMenuData = [
-  { title: "소개", href: "/introduce" },
-  { title: "여행", href: "/travel" },
-  { title: "기획", href: "/plan" },
-  { title: "커뮤니티", href: "/community" },
-];
 
-export const subMenuData = [
+export const headerLinks = [
   {
-    title: ["소개1", "소개2", "소개3"],
-    href: ["/introduce/child1", "/introduce/child2", "/introduce/child3"],
-  },
-  {
-    title: ["여행1", "여행2", "여행3", "여행4"],
-    href: [
-      "/travel/child1",
-      "/travel/child2",
-      "/travel/child3",
-      "/travel/child4",
+    title: "소개",
+    href: "/introduce",
+    subMenu: [
+      { title: "소개1", href: "/introduce/child1" },
+      { title: "소개2", href: "/introduce/child2" },
+      { title: "소개3", href: "/introduce/child3" },
     ],
   },
   {
-    title: ["기획1", "기획2"],
-    href: ["/plan/child1", "/plan/child2"],
+    title: "여행",
+    href: "/travel",
+    subMenu: [
+      { title: "여행1", href: "/travel/child1" },
+      { title: "여행2", href: "/travel/child2" },
+      { title: "여행3", href: "/travel/child3" },
+      { title: "여행4", href: "/travel/child3" },
+    ],
   },
   {
-    title: ["커뮤니티1", "커뮤니티2", "커뮤니티3", "커뮤니티4"],
-    href: [
-      "/community/child1",
-      "/community/child2",
-      "/community/child3",
-      "/community/child4",
+    title: "기획",
+    href: "/plan",
+    subMenu: [
+      { title: "기획1", href: "/plan/child1" },
+      { title: "기획2", href: "/plan/child2" },
+    ],
+  },
+  {
+    title: "커뮤니티",
+    href: "/community",
+    subMenu: [
+      { title: "커뮤니티1", href: "/community/child1" },
+      { title: "커뮤니티2", href: "/community/child2" },
+      { title: "커뮤니티3", href: "/community/child3" },
+      { title: "커뮤니티4", href: "/community/child3" },
     ],
   },
 ];
