@@ -1,14 +1,9 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Navigator";
 import Footer from "@/components/Footer";
+import { introduceLinks } from "@/storage/linkData/linkData";
 
 export default function IntroduceChild3() {
-  const props = {
-    parent: { url: "/introduce", title: "소개" },
-    child1: { url: "/introduce/child1", title: "소개1" },
-    child2: { url: "/introduce/child2", title: "소개2" },
-    child3: { url: "/introduce/child3", title: "소개3" },
-  };
   return (
     <>
       <header>
@@ -16,7 +11,7 @@ export default function IntroduceChild3() {
       </header>
       <hr />
       <nav>
-        <Nav props={props} />
+        <Nav links={introduceLinks} />
       </nav>
       <hr />
       <main>

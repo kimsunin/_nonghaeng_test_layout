@@ -1,13 +1,9 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Navigator";
 import Footer from "@/components/Footer";
+import { planLinks } from "@/storage/linkData/linkData";
 
 export default function Plan() {
-  const props = {
-    parent: { url: "/plan", title: "기획" },
-    child1: { url: "/plan/child1", title: "기획1" },
-    child2: { url: "/plan/child2", title: "기획2" },
-  };
   return (
     <>
       <header>
@@ -15,7 +11,7 @@ export default function Plan() {
       </header>
       <hr />
       <nav>
-        <Nav props={props} />
+        <Nav links={planLinks} />
       </nav>
       <hr />
       <main>

@@ -1,37 +1,48 @@
 import Link from "next/link";
 import React from "react";
+import { mainMenuData, subMenuData } from "@/storage/linkData/linkData";
 
 function Header() {
+  const mainMenuLinks = mainMenuData.map((menuItem, index) => (
+    <li key={index}>
+      <Link href={menuItem.href}>{menuItem.title}</Link>
+    </li>
+  ));
+
+  const subMenuLinks = subMenuData.map((menu, index) => (
+    <ul key={index} className="flex flex-col">
+      {menu.title.map((item, subIndex) => (
+        <li key={subIndex}>
+          <Link href={menu.href[subIndex]}>{item}</Link>
+        </li>
+      ))}
+    </ul>
+  ));
+
   return (
-    <div>
+    <>
       <h1>header</h1>
-      <Link href="/">홈</Link>
-      <div className="relative group">
-        <ul className="flex">
-          <li>
-            <div className="cursor-pointer">
-              <Link href="/introduce">소개</Link>
-            </div>
-            <div className="hidden absolute top-full left-0 group-hover:block bg-green-50">
-              <div>세부 메뉴 1</div>
-              <div>세부 메뉴 2</div>
-              <div>세부 메뉴 3</div>
-            </div>
-          </li>
-          <li>
-            <Link href="/travel">여행</Link>
-          </li>
-          <li>
-            <Link href="/plan">기획</Link>
-          </li>
-          <li>
-            <Link href="/community">커뮤니티</Link>
-          </li>
-        </ul>
+      <div className="flex">
+        <div>
+          <Link href="/">홈</Link>
+        </div>
+        <div className="relative group">
+          <div id="메인메뉴 링크들" className="cursor-pointer">
+            <ul className="flex">{mainMenuLinks}</ul>
+          </div>
+          <div
+            id="세부메뉴 링크들"
+            className="hidden absolute top-full left-0 group-hover:block bg-green-50 bg-opacity-50"
+          >
+            <div className="flex">{subMenuLinks}</div>
+          </div>
+        </div>
+        <div>
+          <Link href="/mypage">마이페이지</Link>
+          <Link href="/sitemap">메뉴</Link>
+        </div>
       </div>
-      <Link href="/mypage">마이페이지</Link>
-      <Link href="/sitemap">메뉴</Link>
-    </div>
+    </>
   );
 }
 

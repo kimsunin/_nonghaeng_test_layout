@@ -1,11 +1,9 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Navigator";
 import Footer from "@/components/Footer";
+import { sitemapLinks } from "@/storage/linkData/linkData";
 
 export default function SiteMap() {
-  const props = {
-    parent: { url: "/sitemap", title: "사이트맵" },
-  };
   return (
     <>
       <header>
@@ -13,7 +11,7 @@ export default function SiteMap() {
       </header>
       <hr />
       <nav>
-        <Nav props={props} />
+        <Nav links={sitemapLinks} />
       </nav>
       <hr />
       <main>
