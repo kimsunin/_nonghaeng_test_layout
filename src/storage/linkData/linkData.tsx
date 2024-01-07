@@ -1,23 +1,23 @@
 // header link
 export const mainMenuData = [
-  { title: "소개", href: "/introduces" },
+  { title: "소개", href: "/introduce" },
   { title: "여행", href: "/travel" },
   { title: "기획", href: "/plan" },
-  { title: "커뮤니티", href: "/comunity" },
+  { title: "커뮤니티", href: "/community" },
 ];
 
 export const subMenuData = [
   {
     title: ["소개1", "소개2", "소개3"],
-    href: ["/indtroduce/child1", "/indtroduce/child1", "/indtroduce/child1"],
+    href: ["/introduce/child1", "/introduce/child2", "/introduce/child3"],
   },
   {
     title: ["여행1", "여행2", "여행3", "여행4"],
     href: [
-      "/travle/child1",
-      "/travle/child2",
-      "/travle/child3",
-      "/travle/child4",
+      "/travel/child1",
+      "/travel/child2",
+      "/travel/child3",
+      "/travel/child4",
     ],
   },
   {
