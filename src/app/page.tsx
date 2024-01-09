@@ -9,6 +9,7 @@ export default function Home() {
       </header>
       <hr />
       <main>
+        <div className="pt-20"></div>
         <h1>홈입니다</h1>
       </main>
       <hr />

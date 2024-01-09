@@ -13,11 +13,15 @@ function Nav({ links }) {
 
   return (
     <>
-      <h1>navigator</h1>
-      <div id="상위 페이지 제목">
-        <Link href={links.parent.url}>{links.parent.title}</Link>
+      <div className="pt-20">
+        <h1>navigator</h1>
+        <div className="flex">
+          <div id="상위 페이지 제목">
+            <Link href={links.parent.url}>{links.parent.title}</Link>
+          </div>
+          <div id="하위 페이지 제목들">{childLinks}</div>
+        </div>
       </div>
-      <div id="하위 페이지 제목들">{childLinks}</div>
     </>
   );
 }
