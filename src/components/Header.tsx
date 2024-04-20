@@ -1,13 +1,36 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { headerLinks } from "@/storage/linkData/linkData";
 
 function Header() {
+  const [isHover, setIsHover] = useState(false);
+  const isLogin = true;
+
+  function onMouseEnter() {
+    setIsHover(true);
+  }
+
+  function onMouseLeave() {
+    setIsHover(false);
+  }
+
   const subMenuLinks = (subMenu) => (
-    <ul>
+    <ul
+      className={`subMenu absolute w-full top-20 z-50 text-center overflow-hidden transition-h duration-500 ease-in-out ${
+        isHover ? "h-48" : "h-0"
+      }`}
+      onMouseOver={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {subMenu.map((item, subIndex) => (
-        <li key={subIndex}>
-          <Link href={item.href}>{item.title}</Link>
+        <li key={subIndex} className="">
+          <Link
+            href={item.href}
+            className="box-border inline-block w-full pt-5"
+          >
+            {item.title}
+          </Link>
         </li>
       ))}
     </ul>
@@ -15,37 +38,59 @@ function Header() {
 
   const mainMenuLinks = headerLinks.map((menuItem, index) => (
     <li key={index} className="relative">
-      <Link href={menuItem.href}>{menuItem.title}</Link>
-      <div className="hidden absolute top-full group-hover:block bg-green-50">
-        {menuItem.subMenu && subMenuLinks(menuItem.subMenu)}
-      </div>
+      <Link
+        href={menuItem.href}
+        className="inline-block p-7 hover:text-slate-300"
+      >
+        {menuItem.title}
+      </Link>
+      {menuItem.subMenu && subMenuLinks(menuItem.subMenu)}
     </li>
   ));
 
   return (
-    <>
-      <div className="fixed top-0 left-0 right-0 h-20 bg-white ">
-        <h1>header</h1>
-        <div className="flex">
-          <div>
-            <Link href="/">홈</Link>
-          </div>
-          <nav className="relative group">
-            <ul className="flex cursor-pointer">{mainMenuLinks}</ul>
-          </nav>
-          <div>
-            <form>
-              <input type="text" placeholder="정보를 찾고계신가요?"></input>
-              <button>검색</button>
-            </form>
-          </div>
-          <div>
-            <Link href="/mypage">마이페이지</Link>
-            <Link href="/sitemap">메뉴</Link>
-          </div>
-        </div>
+    <div className="relative flex items-center h-full header_inner">
+      <div className="ml-10 header_logo p-7 ">
+        <Link href="/">홈</Link>
       </div>
-    </>
+      <nav className="header_menu ml-52">
+        <ul
+          className="flex h-full mainMenu"
+          onMouseOver={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          // 마우스를 오버하면 css를 변경하는 함수를 호출
+        >
+          {mainMenuLinks}
+        </ul>
+      </nav>
+      <div className="ml-20 header_search p-7">
+        <form>
+          <input type="text" placeholder="정보를 찾고계신가요?"></input>
+          <button>검색</button>
+        </form>
+      </div>
+      <div className="ml-48 header_menu2 p-7">
+        {isLogin && (
+          <Link href="/mypage/login" className="p-2">
+            로그인
+          </Link>
+        )}
+        <Link href="/mypage" className="p-2">
+          마이페이지
+        </Link>
+        <Link href="/sitemap" className="p-2">
+          메뉴
+        </Link>
+      </div>
+      {/* subMenu 배경 가상영역 */}
+      <div
+        className={`menuBg absolute bg-slate-300 opacity-85 top-20 w-full overflow-hidden transition-h duration-500 ease-in-out ${
+          isHover ? "h-64" : "h-0"
+        }`}
+        onMouseOver={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      ></div>
+    </div>
   );
 }
 

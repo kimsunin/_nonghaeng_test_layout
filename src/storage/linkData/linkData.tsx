@@ -17,7 +17,7 @@ export const headerLinks = [
       { title: "여행1", href: "/travel/child1" },
       { title: "여행2", href: "/travel/child2" },
       { title: "여행3", href: "/travel/child3" },
-      { title: "여행4", href: "/travel/child3" },
+      { title: "여행4", href: "/travel/child4" },
     ],
   },
   {
@@ -35,7 +35,7 @@ export const headerLinks = [
       { title: "커뮤니티1", href: "/community/child1" },
       { title: "커뮤니티2", href: "/community/child2" },
       { title: "커뮤니티3", href: "/community/child3" },
-      { title: "커뮤니티4", href: "/community/child3" },
+      { title: "커뮤니티4", href: "/community/child4" },
     ],
   },
 ];

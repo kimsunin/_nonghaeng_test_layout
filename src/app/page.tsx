@@ -3,19 +3,16 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <header>
+    <div id="wrap">
+      <header id="header">
         <Header />
       </header>
-      <hr />
-      <main>
-        <div className="pt-20"></div>
+      <main id="main" className=" pt-20">
         <h1>홈입니다</h1>
       </main>
-      <hr />
-      <footer>
+      <footer id="footer">
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }

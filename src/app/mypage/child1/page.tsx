@@ -5,22 +5,24 @@ import { mypageLinks } from "@/storage/linkData/linkData";
 
 export default function Mypage() {
   return (
-    <>
-      <header>
+    <div id="wrap">
+      <header id="header">
         <Header />
       </header>
-      <hr />
-      <nav>
+
+      <nav id="nav">
         <Nav links={mypageLinks} />
       </nav>
-      <hr />
-      <main>
-        <h1>마이페이지 자식1 컴포넌트</h1>
+
+      <main id="main">
+        <div id="content">
+          <h1>마이페이지 자식1 컴포넌트</h1>
+        </div>
       </main>
-      <hr />
-      <footer>
+
+      <footer id="footer">
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
